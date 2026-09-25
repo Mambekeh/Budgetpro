@@ -1,0 +1,790 @@
+/* ===== ACCOUNT SWITCHER ===== */
+
+/* Wrapper */
+.account-switcher {
+  position: relative;
+  display: inline-block;
+}
+
+/* Main Button */
+.account-switcher-btn {
+  background: lab(86.34% 0 -0.01 / 0.486); /* Light transparent background */
+  color: #ffffff; /* White text color */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Slightly more visible border */
+  padding: 8px 10px; /* Increased padding for larger button */
+  border-radius: 10px; /* Larger border radius */
+  font-weight: 700; /* Bolder text */
+  font-size: 16px; /* Larger font */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between icon and text */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', system-ui, sans-serif;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  backdrop-filter: blur(12px);
+  min-height: 40px; /* Taller button */
+}
+
+/* Hover effect - Swell and bold color */
+.account-switcher-btn:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.25),
+    0 0 0 2px rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px) scale(1.02); /* Swell effect */
+  background: rgba(255, 255, 255, 0.6); /* Brighter background on hover */
+}
+
+.account-switcher-btn:active {
+  transform: translateY(0) scale(1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Icon inside button - closer to text */
+.account-switcher-btn .account-icon {
+  font-size: 20px; /* Larger icon */
+  opacity: 1;
+  filter: brightness(1);
+  margin-right: -2px; /* Pulls icon closer to text */
+  transition: all 0.3s ease;
+}
+
+/* Text label inside button - WHITE and BOLD */
+.account-switcher-btn .account-label {
+  font-weight: 700; /* Extra bold */
+  color: #ffffff; /* White color */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+/* Dropdown caret/arrow - LARGER, BOLDER, WHITE */
+.account-switcher-btn .caret {
+  font-size: 20px; /* Much larger */
+  color: #ffffff; /* White color */
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+  opacity: 1;
+  font-weight: 700; /* Bold */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.account-switcher-btn[aria-expanded="true"] .caret {
+  transform: rotate(180deg);
+}
+
+/* Enhance hover effects for all button elements */
+.account-switcher-btn:hover .account-icon {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.account-switcher-btn:hover .account-label {
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.account-switcher-btn:hover .caret {
+  transform: translateY(2px);
+  color: #ffffff;
+}
+
+.account-switcher-btn[aria-expanded="true"]:hover .caret {
+  transform: rotate(180deg) translateY(2px);
+}
+
+/* Dropdown - CENTERED OVER BUTTON */
+.account-switcher-dropdown {
+  position: absolute;
+  top: 50%; /* Center vertically relative to button */
+  left: 50%; /* Center horizontally relative to button */
+  transform: translate(-50%, -50%); /* Perfect centering */
+  background: #ffffff;
+  border-radius: 16px; /* Larger border radius */
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.2), 
+    0 12px 24px rgba(0, 0, 0, 0.12),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
+  width: 300px; /* Increased width */
+  overflow: hidden;
+  z-index: 1000;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  animation: dropdownAppear 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(12px);
+}
+
+@keyframes dropdownAppear {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Dropdown Options */
+.account-option {
+  width: 100%;
+  padding: 16px 20px; /* Increased padding */
+  background: #ffffff;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 15px; /* Slightly larger font */
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Space between icon and text */
+  transition: all 0.2s ease;
+  color: #111827;
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', system-ui, sans-serif;
+  line-height: 1.4;
+}
+
+.account-option:hover {
+  background: #f9fafb;
+}
+
+.account-option.active {
+  background: #f8fafc;
+  cursor: default;
+}
+
+.account-option.active:hover {
+  background: #f8fafc;
+}
+
+.account-option[aria-disabled="true"] {
+  cursor: default;
+}
+
+.option-icon {
+  font-size: 22px; /* Larger icon */
+  width: 24px; /* Increased width */
+  opacity: 0.9;
+  filter: brightness(0.9);
+  transition: transform 0.2s ease;
+}
+
+.account-option:hover .option-icon {
+  transform: scale(1.1);
+}
+
+.option-content {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.option-label {
+  font-weight: 500;
+  color: #111827;
+  letter-spacing: -0.01em;
+  font-size: 15px;
+}
+
+.option-status {
+  font-size: 13px;
+  color: #2563eb;
+  font-weight: 700; /* Bold */
+  padding: 5px 14px; /* Increased padding */
+  background: rgba(37, 99, 235, 0.1);
+  border-radius: 14px;
+  letter-spacing: -0.01em;
+  border: 1px solid rgba(37, 99, 235, 0.15);
+}
+
+.option-badge {
+  font-size: 13px;
+  color: #7c3aed;
+  font-weight: 700; /* Bold */
+  padding: 5px 14px; /* Increased padding */
+  background: rgba(124, 58, 237, 0.1);
+  border-radius: 14px;
+  letter-spacing: -0.01em;
+  border: 1px solid rgba(124, 58, 237, 0.15);
+}
+
+.dropdown-divider {
+  height: 1px;
+  background: #f3f4f6;
+  margin: 0;
+  border: none;
+}
+
+/* ===== UPGRADE MODAL ===== */
+
+.upgrade-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  backdrop-filter: blur(4px);
+  animation: overlayAppear 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 24px;
+}
+
+@keyframes overlayAppear {
+  from { 
+    opacity: 0;
+    backdrop-filter: blur(0);
+  }
+  to { 
+    opacity: 1;
+    backdrop-filter: blur(4px);
+  }
+}
+
+.upgrade-modal {
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(0, 0, 0, 0.03);
+  animation: modalAppear 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes modalAppear {
+  from {
+    opacity: 0;
+    transform: translateY(-16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modal-icon {
+  font-size: 44px;
+  margin-bottom: 16px;
+  opacity: 0.9;
+  filter: brightness(0.95);
+}
+
+.modal-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', system-ui, sans-serif;
+}
+
+.modal-subtitle {
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 20px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', system-ui, sans-serif;
+}
+
+/* Feature List - Compact Mobile Design */
+.feature-list {
+  background: #f9fafb;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 24px;
+  border: 1px solid #f3f4f6;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 6px 0;
+  text-align: left;
+}
+
+.feature-item:first-child {
+  padding-top: 0;
+}
+
+.feature-item:last-child {
+  padding-bottom: 0;
+}
+
+.feature-dot {
+  min-width: 5px;
+  height: 5px;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  border-radius: 50%;
+  margin-top: 7px;
+  opacity: 0.9;
+  flex-shrink: 0;
+}
+
+.feature-text {
+  color: #374151;
+  font-size: 13px;
+  line-height: 1.4;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  flex: 1;
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', system-ui, sans-serif;
+}
+
+.upgrade-modal-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.btn-cancel {
+  flex: 1;
+  padding: 12px 20px;
+  background: #ffffff;
+  color: #6b7280;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: -0.01em;
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', system-ui, sans-serif;
+  line-height: 1.4;
+}
+
+.btn-cancel:hover {
+  background: #f9fafb;
+  border-color: #d1d5db;
+  color: #374151;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.btn-cancel:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.btn-upgrade {
+  flex: 1;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 3px 12px rgba(79, 70, 229, 0.25),
+    0 0 0 1px rgba(79, 70, 229, 0.08);
+  letter-spacing: -0.01em;
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', system-ui, sans-serif;
+  line-height: 1.4;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-upgrade::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.1), 
+    rgba(255, 255, 255, 0)
+  );
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.btn-upgrade:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 6px 18px rgba(79, 70, 229, 0.35),
+    0 0 0 1px rgba(79, 70, 229, 0.12);
+}
+
+.btn-upgrade:hover::before {
+  opacity: 1;
+}
+
+.btn-upgrade:active {
+  transform: translateY(0);
+  box-shadow: 
+    0 2px 6px rgba(79, 70, 229, 0.25),
+    0 0 0 1px rgba(79, 70, 229, 0.08);
+}
+
+/* ===== MOBILE OPTIMIZATIONS ===== */
+@media (max-width: 640px) {
+  /* Prevent modal from touching navbar */
+  .upgrade-modal-overlay {
+    padding: 20px;
+    align-items: flex-start;
+    padding-top: 80px;
+    padding-bottom: 20px;
+  }
+  
+  .upgrade-modal {
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 100%;
+    border-radius: 14px;
+    box-shadow: 
+      0 10px 25px rgba(0, 0, 0, 0.15),
+      0 0 0 1px rgba(0, 0, 0, 0.03);
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+  }
+  
+  /* Reduce icon size */
+  .modal-icon {
+    font-size: 36px;
+    margin-bottom: 12px;
+  }
+  
+  /* Reduce title spacing */
+  .modal-title {
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+  
+  /* Reduce subtitle spacing */
+  .modal-subtitle {
+    font-size: 13px;
+    margin-bottom: 16px;
+    line-height: 1.3;
+  }
+  
+  /* Compact feature list */
+  .feature-list {
+    padding: 12px;
+    margin-bottom: 16px;
+    border-radius: 10px;
+  }
+  
+  /* Reduce feature item spacing */
+  .feature-item {
+    padding: 4px 0;
+    gap: 8px;
+    margin: 0;
+  }
+  
+  .feature-dot {
+    min-width: 4px;
+    height: 4px;
+    margin-top: 6px;
+  }
+  
+  .feature-text {
+    font-size: 12px;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+  
+  /* Stack buttons with less spacing */
+  .upgrade-modal-actions {
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 4px;
+  }
+  
+  .btn-cancel,
+  .btn-upgrade {
+    width: 100%;
+    padding: 10px 16px;
+    font-size: 14px;
+    border-radius: 10px;
+  }
+  
+  /* Mobile Button - Even better styling */
+  .account-switcher-btn {
+    padding: 14px 10px !important;
+    font-size: 10px !important;
+    min-height: 56px !important; /* Taller */
+    border-radius: 14px !important;
+    gap: 8px !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2) !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+    border: 1px solid rgba(255, 255, 255, 0.35) !important;
+    font-weight: 700 !important; /* Bold */
+  }
+  
+  /* Icon closer to text on mobile */
+  .account-switcher-btn .account-icon {
+    font-size: 22px !important;
+    width: 22px !important;
+    height: 22px !important;
+    margin-right: -2px !important;
+  }
+  
+  /* Larger white caret on mobile */
+  .account-switcher-btn .caret {
+    font-size: 22px !important;
+    margin-left: 8px !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+  }
+  
+  /* White bold text on mobile */
+  .account-switcher-btn .account-label {
+    font-size: 17px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+  }
+  
+  /* Hover swell effect on mobile */
+  .account-switcher-btn:hover {
+    transform: translateY(-2px) scale(1.03) !important;
+    box-shadow: 
+      0 12px 28px rgba(0, 0, 0, 0.3),
+      0 0 0 2px rgba(255, 255, 255, 0.25) !important;
+    background: rgba(255, 255, 255, 0.3) !important;
+  }
+  
+  /* Dropdown centered on mobile */
+  .account-switcher-dropdown {
+    width: 300px !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    border-radius: 18px !important;
+  }
+  
+  .account-option {
+    padding: 14px 18px !important;
+    font-size: 16px !important;
+    gap: 10px !important;
+    min-height: 52px !important;
+  }
+  
+  .option-icon {
+    font-size: 22px !important;
+    width: 24px !important;
+  }
+  
+  .option-status,
+  .option-badge {
+    font-size: 13px !important;
+    padding: 5px 12px !important;
+    border-radius: 14px !important;
+    font-weight: 700 !important;
+  }
+  
+  .account-switcher {
+    min-width: 200px !important;
+  }
+}
+
+/* Tablet */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .upgrade-modal-overlay {
+    padding: 32px;
+  }
+  
+  .upgrade-modal {
+    max-width: 380px;
+    padding: 28px;
+  }
+  
+  .account-switcher-btn {
+    padding: 14px 22px;
+    min-height: 56px;
+    font-size: 17px;
+  }
+  
+  .account-switcher-btn .caret {
+    font-size: 22px;
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1440px) {
+  .upgrade-modal {
+    max-width: 420px;
+    padding: 36px;
+  }
+  
+  .account-switcher-btn {
+    padding: 14px 24px;
+    min-height: 60px;
+    font-size: 17px;
+    border-radius: 14px;
+  }
+  
+  .account-switcher-btn .caret {
+    font-size: 24px;
+  }
+  
+  .account-switcher-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .account-switcher-btn {
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    background: #000000;
+  }
+  
+  .account-switcher-btn .account-label,
+  .account-switcher-btn .caret {
+    color: #ffffff;
+  }
+  
+  .account-switcher-dropdown {
+    border: 2px solid #000000;
+  }
+  
+  .upgrade-modal {
+    border: 2px solid #000000;
+  }
+  
+  .feature-list {
+    border: 2px solid #000000;
+  }
+  
+  .feature-dot {
+    background: #000000;
+  }
+  
+  .btn-cancel {
+    border: 2px solid #000000;
+  }
+  
+  .option-label,
+  .modal-title,
+  .feature-text {
+    color: #000000;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .account-switcher-btn,
+  .account-option,
+  .btn-cancel,
+  .btn-upgrade,
+  .upgrade-modal,
+  .account-switcher-dropdown,
+  .account-switcher-btn .caret,
+  .account-switcher-btn .account-icon {
+    transition: none;
+    animation: none;
+    transform: none !important;
+  }
+  
+  .account-switcher-btn:hover {
+    transform: none !important;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 360px) {
+  .upgrade-modal-overlay {
+    padding: 12px;
+    padding-top: 70px;
+  }
+  
+  .upgrade-modal {
+    padding: 16px;
+  }
+  
+  .modal-icon {
+    font-size: 32px;
+    margin-bottom: 8px;
+  }
+  
+  .modal-title {
+    font-size: 16px;
+  }
+  
+  .modal-subtitle {
+    font-size: 12px;
+    margin-bottom: 12px;
+  }
+  
+  .feature-list {
+    padding: 10px;
+    margin-bottom: 12px;
+  }
+  
+  .feature-text {
+    font-size: 11px;
+  }
+  
+  /* Smaller but still prominent button */
+  .account-switcher-btn {
+    padding: 12px 16px !important;
+    font-size: 16px !important;
+    min-height: 52px !important;
+  }
+  
+  .account-switcher-btn .caret {
+    font-size: 20px !important;
+  }
+  
+  .account-switcher-dropdown {
+    width: 280px !important;
+  }
+  
+  .account-option {
+    padding: 12px 16px !important;
+    font-size: 15px !important;
+    min-height: 48px !important;
+  }
+}
+
+/* Extra enhancements for mobile switcher */
+@media (max-width: 767px) {
+  .account-switcher {
+    display: block !important;
+    width: 100% !important;
+    max-width: 340px !important;
+    margin: 0 auto !important;
+  }
+  
+  .account-switcher-btn {
+    width: 100% !important;
+    justify-content: space-between !important;
+  }
+  
+  /* Dropdown remains centered on mobile */
+  .account-switcher-dropdown {
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+  }
+  
+  .account-switcher-dropdown[data-popper-placement^="bottom"] {
+    animation: mobileDropdownAppear 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  }
+  
+  @keyframes mobileDropdownAppear {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+}

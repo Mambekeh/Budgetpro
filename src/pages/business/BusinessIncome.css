@@ -1,0 +1,729 @@
+/* BusinessIncome.css - Mobile-First with Account Dropdown */
+.business-income-page {
+  min-height: 100vh;
+  background: #f8fafc;
+  padding-top: 70px; /* Clearance for main navbar */
+}
+
+/* HEADER */
+.business-income-page__header {
+  background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+  color: white;
+  padding: 16px;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  z-index: 90;
+}
+
+.business-income-page__header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.business-income-page__header-main {
+  flex: 1;
+  text-align: center;
+}
+
+.business-income-page__header-main h1 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 4px 0;
+  color: white;
+}
+
+.business-income-page__header-main p {
+  font-size: 13px;
+  opacity: 0.9;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* ACCOUNT SWITCHER - CENTERED */
+.business-income-page__account-switcher {
+  position: relative;
+  z-index: 100;
+  width: 100%;
+  max-width: 160px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.business-income-page__switch-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 4px;
+  text-align: center;
+  display: block;
+}
+
+.business-income-page__dropdown-container {
+  position: relative;
+  display: inline-block;
+  text-align: left;
+}
+
+.business-income-page__dropdown-trigger {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 140px;
+  transition: all 0.2s ease;
+}
+
+.business-income-page__dropdown-trigger:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.business-income-page__current-account {
+  flex: 1;
+  text-align: left;
+}
+
+.business-income-page__dropdown-arrow {
+  font-size: 10px;
+  transition: transform 0.2s ease;
+}
+
+.business-income-page__dropdown-container.business-income-page__dropdown-container--active .business-income-page__dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+/* DROPDOWN MENU */
+.business-income-page__dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 4px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  min-width: 160px;
+  z-index: 1000;
+  animation: business-income-page-slideDown 0.2s ease;
+}
+
+@keyframes business-income-page-slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.business-income-page__dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+  background: transparent;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.business-income-page__dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.business-income-page__dropdown-item:hover {
+  background: #f3f4f6;
+  color: #1a237e;
+}
+
+.business-income-page__dropdown-item--active {
+  background: #f0f7ff;
+  color: #1a237e;
+  font-weight: 600;
+  position: relative;
+}
+
+.business-income-page__dropdown-item--active::before {
+  content: "✓";
+  position: absolute;
+  left: 8px;
+  color: #1a237e;
+}
+
+/* MAIN CONTENT */
+.business-income-page__main {
+  padding: 120px 16px 40px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* SUCCESS MESSAGE */
+.business-income-page__success-message {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  padding: 12px 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  animation: business-income-page-slideIn 0.3s ease;
+}
+
+.business-income-page__success-icon {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.business-income-page__success-text {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+@keyframes business-income-page-slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* FORM CARD */
+.business-income-page__form-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e5e7eb;
+}
+
+.business-income-page__form-header {
+  margin-bottom: 20px;
+}
+
+.business-income-page__form-header h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 6px 0;
+}
+
+.business-income-page__form-subtitle {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* FORM FIELDS */
+.business-income-page__form-field {
+  margin-bottom: 16px;
+}
+
+.business-income-page__field-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+.business-income-page__required {
+  color: #dc2626;
+  margin-left: 2px;
+}
+
+.business-income-page__form-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 15px;
+  background: white;
+  color: #1f2937;
+  transition: all 0.2s ease;
+}
+
+.business-income-page__form-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* AMOUNT INPUT */
+.business-income-page__amount-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.business-income-page__currency-symbol {
+  font-size: 15px;
+  font-weight: 500;
+  color: #374151;
+  min-width: 20px;
+}
+
+.business-income-page__amount-input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 15px;
+  background: white;
+  color: #1f2937;
+  transition: all 0.2s ease;
+}
+
+.business-income-page__amount-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* TEXTAREA */
+.business-income-page__form-textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 15px;
+  background: white;
+  color: #1f2937;
+  font-family: inherit;
+  resize: vertical;
+  min-height: 80px;
+  transition: all 0.2s ease;
+}
+
+.business-income-page__form-textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.business-income-page__field-hint {
+  font-size: 12px;
+  color: #9ca3af;
+  margin-top: 4px;
+}
+
+/* FORM ACTIONS */
+.business-income-page__form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #e5e7eb;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.business-income-page__cancel-btn,
+.business-income-page__submit-btn {
+  flex: 1;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  min-width: 120px;
+  max-width: 160px;
+}
+
+/* RED CANCEL BUTTON */
+.business-income-page__cancel-btn {
+  background: #ef4444;
+  color: white;
+  border: 1px solid #dc2626;
+}
+
+.business-income-page__cancel-btn:hover:not(:disabled) {
+  background: #dc2626;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.2);
+}
+
+/* GREEN SUBMIT BUTTON */
+.business-income-page__submit-btn {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  border: 1px solid #059669;
+}
+
+.business-income-page__submit-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.2);
+}
+
+.business-income-page__cancel-btn:disabled,
+.business-income-page__submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* SPINNER */
+.business-income-page__spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: business-income-page-spin 1s ease-in-out infinite;
+}
+
+@keyframes business-income-page-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* TIPS CARD */
+.business-income-page__tips-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e5e7eb;
+  margin-top: 20px;
+}
+
+.business-income-page__tips-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.business-income-page__tips-icon {
+  font-size: 20px;
+}
+
+.business-income-page__tips-header h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+}
+
+.business-income-page__tips-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.business-income-page__tips-list li {
+  font-size: 14px;
+  color: #4b5563;
+  padding: 8px 0;
+  padding-left: 24px;
+  position: relative;
+  line-height: 1.4;
+}
+
+.business-income-page__tips-list li:before {
+  content: "•";
+  color: #3b82f6;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 639px) {
+  .business-income-page__header-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .business-income-page__account-switcher {
+    align-self: center;
+    max-width: 100%;
+  }
+  
+  .business-income-page__dropdown-trigger {
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  .business-income-page__switch-label {
+    text-align: center;
+  }
+  
+  .business-income-page__form-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .business-income-page__cancel-btn,
+  .business-income-page__submit-btn {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+/* RESPONSIVE DESIGN */
+@media (min-width: 640px) {
+  .business-income-page__header {
+    padding: 20px 24px;
+  }
+  
+  .business-income-page__main {
+    padding: 120px 24px 40px;
+  }
+  
+  .business-income-page__header-main h1 {
+    font-size: 24px;
+  }
+  
+  .business-income-page__header-main p {
+    font-size: 14px;
+  }
+  
+  .business-income-page__form-card {
+    padding: 24px;
+  }
+  
+  .business-income-page__form-actions {
+    gap: 16px;
+  }
+}
+
+@media (min-width: 768px) {
+  .business-income-page__header {
+    padding: 20px 40px;
+  }
+  
+  .business-income-page__main {
+    padding: 120px 40px 40px;
+  }
+  
+  .business-income-page__dropdown-trigger {
+    min-width: 140px;
+  }
+  
+  .business-income-page__account-switcher {
+    width: auto;
+    margin: 0;
+  }
+  
+  .business-income-page__header-content {
+    flex-wrap: nowrap;
+  }
+  
+  .business-income-page__switch-label {
+    text-align: center;
+  }
+  
+  .business-income-page__form-actions {
+    justify-content: center;
+  }
+  
+  .business-income-page__cancel-btn,
+  .business-income-page__submit-btn {
+    flex: 0 1 auto;
+    min-width: 120px;
+    width: auto;
+  }
+}
+
+/* FIXED BUTTONS STYLES - SCOPED */
+.business-income-page__form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #e5e7eb;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.business-income-page__cancel-btn,
+.business-income-page__submit-btn {
+  flex: 0 0 auto;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  min-width: 140px;
+  width: 140px;
+  box-sizing: border-box;
+}
+
+.business-income-page__cancel-btn {
+  background: #ef4444;
+  color: white;
+  border: 1px solid #dc2626;
+}
+
+.business-income-page__cancel-btn:hover:not(:disabled) {
+  background: #dc2626;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.2);
+}
+
+.business-income-page__submit-btn {
+  background: #10b981;
+  color: white;
+  border: 1px solid #059669;
+}
+
+.business-income-page__submit-btn:hover:not(:disabled) {
+  background: #059669;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.2);
+}
+
+.business-income-page__cancel-btn:disabled,
+.business-income-page__submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+@media (max-width: 639px) {
+  .business-income-page__form-actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .business-income-page__cancel-btn,
+  .business-income-page__submit-btn {
+    width: 140px;
+    min-width: 140px;
+    max-width: 140px;
+  }
+}
+
+@media (min-width: 768px) {
+  .business-income-page__cancel-btn,
+  .business-income-page__submit-btn {
+    width: 140px;
+    min-width: 140px;
+    max-width: 140px;
+  }
+}/* ===== ACCOUNT SWITCHER SECTION ===== */
+.business-income-page__account-switcher-section {
+  position: relative;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.business-income-page__switch-account-title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.95);
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+/* Override any parent overflow */
+.business-income-page .account-switcher-section {
+  overflow: visible !important;
+}
+
+.business-income-page .account-switcher-dropdown {
+  overflow: visible !important;
+}
+
+.business-income-page .account-dropdown-menu {
+  z-index: 99999 !important;
+}
+
+/* Ensure dropdown is visible in this context */
+@media (max-width: 768px) {
+  .business-income-page .account-dropdown-menu {
+    position: fixed !important;
+    top: 100px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 90% !important;
+    max-width: 280px !important;
+  }
+}
+
+/* Header layout */
+.business-income-page__header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.business-income-page__header-main {
+  flex: 1;
+}
+
+.business-income-page__header-main h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 4px 0;
+}
+
+.business-income-page__header-main p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .business-income-page__header-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+  }
+  
+  .business-income-page__account-switcher-section {
+    width: 100%;
+  }
+}

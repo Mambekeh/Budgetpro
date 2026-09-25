@@ -1,0 +1,708 @@
+/* CSS Variables for consistent theming */
+:root {
+  --primary: #2563eb;
+  --primary-light: rgba(37, 99, 235, 0.08);
+  --secondary: #8b5cf6;
+  --success: #16a34a;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --danger-light: #fca5a5; /* Light red for Wants */
+  --teal: #10b981;
+  --dark: #111827;
+  --gray-900: #1f2937;
+  --gray-800: #374151;
+  --gray-700: #4b5563;
+  --gray-600: #6b7280;
+  --gray-500: #9ca3af;
+  --gray-400: #d1d5db;
+  --gray-300: #e5e7eb;
+  --gray-200: #f3f4f6;
+  --gray-100: #f9fafb;
+  --gray-50: #f8fafc;
+  --white: #ffffff;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+}
+
+/* Base wrapper - Full width, mobile-first */
+.monthly-overview-wrapper {
+  padding: 1rem;
+  padding-top: 80px; /* INCREASED: Added mobile padding above content */
+  width: 100%;
+  min-height: 100vh;
+  background: var(--gray-50);
+  margin: 0 auto;
+}
+
+/* Top spacing - REMOVED the .page-top-spacing class since we're using wrapper padding */
+/* .page-top-spacing {
+  height: 20px;
+} */
+
+/* Page Header */
+.page-header-container {
+  width: 100%;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 1.5rem;
+}
+
+.page-header-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.header-text-container {
+  flex: 1;
+}
+
+.page-subtitle {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gray-600);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.page-title {
+  font-size: 1.5rem;
+  margin: 0;
+  color: var(--dark);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.page-description {
+  margin: 0.5rem 0 0;
+  color: var(--gray-600);
+  font-size: 0.875rem;
+}
+
+.page-description strong {
+  color: var(--dark);
+  font-weight: 600;
+}
+
+/* Compact Selector - CLOSER TOGETHER */
+.compact-selector-container {
+  width: 100%;
+}
+
+.compact-selector-container .selector-label {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--gray-600);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.compact-selector-group {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.compact-selector {
+  flex: 1;
+  padding: 0.75rem 0.875rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--gray-300);
+  font-size: 0.875rem;
+  outline: none;
+  background: var(--white);
+  color: var(--dark);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  min-width: 0;
+}
+
+.month-selector {
+  flex: 1.2;
+}
+
+.year-selector {
+  flex: 0.8;
+}
+
+.compact-selector:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  outline: none;
+}
+
+/* Loading / No Data States */
+.loading-container,
+.no-data-container {
+  width: 100%;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.loading-icon,
+.no-data-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.no-data-title {
+  margin: 0 0 0.75rem;
+  color: var(--dark);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.no-data-description {
+  margin: 0;
+  color: var(--gray-600);
+  font-size: 0.875rem;
+  max-width: 100%;
+}
+
+/* Metrics Section */
+.metrics-section {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+/* Mobile Metrics Card - Default (visible on mobile) */
+.mobile-metrics-card {
+  width: 100%;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-md);
+  display: block;
+}
+
+.mobile-metrics-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.875rem 0;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.mobile-metrics-row:last-child {
+  border-bottom: none;
+}
+
+.mobile-metric-label {
+  font-size: 0.875rem;
+  color: var(--gray-700);
+  font-weight: 500;
+}
+
+.mobile-metric-value {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.income-value {
+  color: var(--primary) !important; /* CHANGED: Blue for income on mobile */
+}
+
+.expense-value {
+  color: var(--danger) !important;
+}
+
+.balance-value {
+  color: var(--primary) !important;
+}
+
+.savings-rate-value {
+  color: var(--teal) !important;
+}
+
+/* Desktop Metrics - Hidden on mobile */
+.desktop-metrics-grid {
+  display: none;
+}
+
+/* Metric Card Component */
+.metric-card {
+  width: 100%;
+  background: var(--white);
+  padding: 1.25rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.metric-icon-container {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.metric-content {
+  flex: 1;
+}
+
+.metric-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gray-600);
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.metric-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--dark);
+  line-height: 1.2;
+}
+
+/* Charts Section - Mobile First */
+.charts-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Chart Card Component */
+.chart-card {
+  width: 100%;
+  background: var(--white);
+  padding: 1.25rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.chart-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.chart-header {
+  margin-bottom: 0.5rem;
+}
+
+.chart-title {
+  margin: 0;
+  font-size: 1.125rem;
+  color: var(--dark);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.chart-subtitle {
+  margin: 0.5rem 0 0;
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  line-height: 1.5;
+}
+
+.chart-body {
+  width: 100%;
+  flex: 1;
+}
+
+/* Chart Containers - MEDIUM SIZE (Increased from small) */
+.chart-container {
+  height: 280px;
+  width: 100%;
+  position: relative;
+}
+
+/* Health Score Specific Styles */
+.health-score-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+.health-score-circle {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.health-score-inner {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: var(--white);
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px rgba(148, 163, 184, 0.2);
+}
+
+.health-score-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--dark);
+  z-index: 1;
+}
+
+.health-score-description {
+  font-size: 0.875rem;
+  color: var(--gray-700);
+  text-align: center;
+  line-height: 1.6;
+  max-width: 100%;
+}
+
+.health-score-description strong {
+  color: var(--dark);
+  font-weight: 600;
+}
+
+/* Top Spending Chart Styles */
+.top-categories-chart {
+  width: 100%;
+  height: 100%;
+}
+
+.top-categories-chart .chart-container {
+  height: 280px;
+  width: 100%;
+  position: relative;
+}
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+  .top-categories-chart .chart-container {
+    height: 260px;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 768px) {
+  .top-categories-chart .chart-container {
+    height: 300px;
+  }
+}
+
+/* Desktop adjustments */
+@media (min-width: 1024px) {
+  .top-categories-chart .chart-container {
+    height: 320px;
+  }
+}
+
+/* Large desktop adjustments */
+@media (min-width: 1440px) {
+  .top-categories-chart .chart-container {
+    height: 340px;
+  }
+}
+
+/* Tablet Styles (768px and up) */
+@media (min-width: 768px) {
+  .monthly-overview-wrapper {
+    padding: 1.5rem;
+    padding-top: 90px; /* INCREASED: More padding for tablet */
+  }
+
+  .page-header-container {
+    padding: 1.5rem;
+  }
+
+  .page-header-content {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .compact-selector-container {
+    width: auto;
+    min-width: 260px;
+  }
+
+  .compact-selector-group {
+    width: 260px;
+  }
+
+  /* Hide mobile metrics, show desktop metrics */
+  .mobile-metrics-card {
+    display: none;
+  }
+
+  .desktop-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    width: 100%;
+  }
+
+  /* Charts layout for tablet - 2 charts per row */
+  .charts-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .chart-card-row-1,
+  .chart-card-row-2 {
+    width: 100%;
+  }
+
+  .chart-card {
+    padding: 1.5rem;
+  }
+
+  .chart-title {
+    font-size: 1.25rem;
+  }
+
+  /* Tablet chart height - MEDIUM SIZE */
+  .chart-container {
+    height: 300px;
+  }
+
+  .health-score-container {
+    flex-direction: row;
+    text-align: left;
+    justify-content: center;
+    gap: 1.75rem;
+  }
+
+  .health-score-description {
+    text-align: left;
+    max-width: 250px;
+  }
+}
+
+/* Desktop Styles (1024px and up) - MEDIUM CHART SIZE */
+@media (min-width: 1024px) {
+  .monthly-overview-wrapper {
+    padding: 2rem;
+    padding-top: 100px; /* INCREASED: More padding for desktop */
+    max-width: none;
+  }
+
+  .page-header-container {
+    padding: 1.75rem 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .page-title {
+    font-size: 1.875rem;
+  }
+
+  .desktop-metrics-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .metric-card {
+    padding: 1.25rem;
+  }
+
+  .metric-value {
+    font-size: 1.375rem;
+  }
+
+  /* Charts layout: 3 charts in first row, 3 charts in second row */
+  .charts-section {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.5rem;
+  }
+
+  /* First row: 3 charts, each spans 2 columns */
+  .chart-card-row-1 {
+    grid-column: span 2;
+  }
+
+  /* Second row: All 3 charts span 2 columns each */
+  .chart-card-row-2 {
+    grid-column: span 2;
+  }
+
+  .chart-card {
+    padding: 1.5rem;
+  }
+
+  /* MEDIUM CHART HEIGHT ON DESKTOP */
+  .chart-container {
+    height: 320px;
+  }
+
+  .health-score-circle {
+    width: 150px;
+    height: 150px;
+  }
+
+  .health-score-inner {
+    width: 110px;
+    height: 110px;
+  }
+
+  .health-score-value {
+    font-size: 1.6rem;
+  }
+
+  .health-score-description {
+    max-width: 280px;
+    font-size: 0.875rem;
+  }
+}
+
+/* Large Desktop Styles (1440px and up) - EXTRA WIDE */
+@media (min-width: 1440px) {
+  .monthly-overview-wrapper {
+    padding: 2.5rem;
+    padding-top: 110px; /* INCREASED: More padding for large desktop */
+  }
+
+  .page-header-container {
+    padding: 2rem 2.5rem;
+  }
+
+  .desktop-metrics-grid {
+    gap: 1.5rem;
+  }
+
+  .charts-section {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1.75rem;
+  }
+
+  /* Custom grid layout for extra wide screens */
+  .chart-card-row-1 {
+    grid-column: span 4;
+  }
+
+  .chart-card-row-2 {
+    grid-column: span 4;
+  }
+
+  /* Larger charts on extra wide screens */
+  .chart-container {
+    height: 340px;
+  }
+}
+
+/* Extra Large Screens (1920px and up) */
+@media (min-width: 1920px) {
+  .monthly-overview-wrapper {
+    padding: 3rem 4rem;
+    padding-top: 120px; /* INCREASED: More padding for extra large */
+  }
+
+  .page-header-container {
+    padding: 2.5rem 3rem;
+  }
+
+  .desktop-metrics-grid {
+    gap: 1.75rem;
+  }
+
+  .metric-card {
+    padding: 1.5rem;
+  }
+
+  .metric-icon-container {
+    width: 52px;
+    height: 52px;
+    font-size: 1.5rem;
+  }
+
+  .metric-value {
+    font-size: 1.5rem;
+  }
+
+  .charts-section {
+    gap: 2rem;
+  }
+
+  .chart-card {
+    padding: 1.75rem;
+  }
+
+  .chart-title {
+    font-size: 1.375rem;
+  }
+
+  .chart-container {
+    height: 360px;
+  }
+}
+
+/* Animation for smooth transitions */
+.metric-card,
+.chart-card,
+.page-header-container {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Selection styles */
+.compact-selector option {
+  background: var(--white);
+  color: var(--dark);
+  padding: 0.5rem;
+}
+
+/* Focus states for accessibility */
+.compact-selector:focus,
+.metric-card:focus,
+.chart-card:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  .monthly-overview-wrapper {
+    padding: 0;
+    background: white;
+  }
+  
+  .page-header-container,
+  .metric-card,
+  .chart-card {
+    box-shadow: none;
+    border: 1px solid var(--gray-300);
+  }
+}

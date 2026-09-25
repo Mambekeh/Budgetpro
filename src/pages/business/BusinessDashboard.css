@@ -1,0 +1,744 @@
+/* BusinessDashboard.css - Fixed with mobile layout and proper spacing */
+.business-page {
+  min-height: 100vh;
+  background: #f8fafc;
+  padding-top: 70px;
+}
+
+/* HEADER WITH ACCOUNT SWITCHER */
+.dashboard-business-header {
+  background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+  color: #ffffff;
+  padding: 15px 0;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  z-index: 90;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.welcome-message h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.welcome-message p {
+  margin-top: 4px;
+  font-size: 13px;
+  opacity: 0.9;
+  color: #e8eaf6;
+}
+
+/* BUSINESS NAME DISPLAY IN HEADER */
+.welcome-message .business-name-display {
+  font-weight: 600;
+  color: #ffffff;
+  margin-left: 8px;
+  opacity: 0.9;
+}
+
+.account-switcher-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.switch-account-title {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  color: #ffffff;
+}
+
+.switcher-wrapper {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 5px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.switcher-button {
+  background: #ffffff;
+  color: #1a237e;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  min-width: 120px;
+  transition: background 0.2s;
+}
+
+.switcher-button:hover {
+  background: #f1f1f1;
+}
+
+/* MAIN CONTENT - INCREASED PADDING FOR GAP */
+.dashboard-main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #ffffff;
+  padding-top: 130px; /* INCREASED from 100px to 130px for proper gap */
+}
+
+/* BUSINESS NAME BANNER */
+.business-name-banner {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.business-name-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.business-name-icon {
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+  color: white;
+  border-radius: 12px;
+}
+
+.business-name-text h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 5px 0;
+}
+
+.business-industry {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0;
+  font-weight: 500;
+}
+
+.business-name-banner .edit-business-btn {
+  padding: 10px 20px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.business-name-banner .edit-business-btn:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+}
+
+/* FIRST-TIME ONBOARDING CARD */
+.onboarding-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 1.2rem;
+  margin-bottom: 1.5rem;
+  background: white;
+}
+
+.onboarding-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: #333;
+}
+
+.onboarding-subtitle {
+  color: #666;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+/* TOP SECTION: Period Selection + Quick Actions side by side */
+.top-section-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .top-section-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* PERIOD SELECTION CARD - SMALL & COMPACT */
+.period-selection-card {
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  height: fit-content;
+}
+
+.period-selection-card .period-header {
+  margin-bottom: 12px;
+}
+
+.period-selection-card .period-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937 !important;
+  margin: 0;
+  text-align: left;
+}
+
+.period-selection-card .period-controls-compact {
+  display: flex;
+  gap: 10px;
+}
+
+.period-selection-card .form-select-compact {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 13px;
+  background: white;
+  color: #374151 !important;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.period-selection-card .form-select-compact:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* QUICK ACTIONS CARD - COMPACT WITH DIFFERENT DESKTOP/MOBILE LAYOUT */
+.quick-actions-card {
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  height: fit-content;
+}
+
+.quick-actions-card .card-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 12px;
+}
+
+/* DESKTOP: Original 2x2 grid layout */
+.quick-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Desktop: 2 columns */
+  gap: 10px;
+}
+
+/* MOBILE: Different layout - Add Income/Add Expense inline, Quotations/Invoices inline below */
+@media (max-width: 768px) {
+  .quick-actions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Mobile: 2 columns inline */
+    gap: 8px;
+  }
+  
+  /* On mobile, ensure all buttons are the same size */
+  .quick-action-btn {
+    min-height: 65px; /* Slightly shorter on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .quick-actions-grid {
+    gap: 6px;
+  }
+}
+
+.quick-action-btn {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 70px;
+}
+
+.quick-action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.income-action {
+  background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+  color: #065f46;
+}
+
+.expense-action {
+  background: linear-gradient(135deg, #fee2e2, #fecaca);
+  color: #991b1b;
+}
+
+.quotation-action {
+  background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+  color: #1e40af;
+}
+
+.invoice-action {
+  background: linear-gradient(135deg, #f3e8ff, #e9d5ff);
+  color: #7c3aed;
+}
+
+.action-icon {
+  font-size: 20px;
+}
+
+.action-text {
+  font-size: 13px !important; /* READABLE SIZE */
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Make sure the text fits well on the buttons */
+.income-action .action-text,
+.expense-action .action-text,
+.quotation-action .action-text,
+.invoice-action .action-text {
+  word-wrap: break-word;
+  max-width: 100%;
+}
+
+/* MONTHLY OVERVIEW - THREE COMPACT CARDS */
+.dashboard-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .dashboard-overview-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.overview-card {
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  transition: all 0.2s ease;
+  min-height: 80px;
+}
+
+.overview-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.overview-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.overview-left {
+  text-align: left;
+}
+
+.overview-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #6b7280;
+  margin-bottom: 2px;
+}
+
+.overview-subtitle {
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+.overview-right {
+  text-align: right;
+}
+
+.overview-value {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.income-card .overview-value {
+  color: #059669;
+}
+
+.expense-card .overview-value {
+  color: #dc2626;
+}
+
+.profit-positive {
+  color: #059669;
+}
+
+.profit-negative {
+  color: #dc2626;
+}
+
+/* TRANSACTIONS */
+.transactions-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.card-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+}
+
+.view-all-btn {
+  padding: 5px 12px;
+  background: #f3f4f6;
+  color: #4b5563;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.view-all-btn:hover {
+  background: #e5e7eb;
+}
+
+.transactions-list {
+  margin-bottom: 0;
+}
+
+.transaction-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #f3f4f6;
+  gap: 10px;
+}
+
+.transaction-item:last-child {
+  border-bottom: none;
+}
+
+.type-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.type-icon.income {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.type-icon.expense {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.transaction-details {
+  flex: 1;
+}
+
+.transaction-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1f2937;
+  margin-bottom: 2px;
+}
+
+.transaction-date {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+.transaction-amount {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.transaction-amount .income {
+  color: #059669;
+}
+
+.transaction-amount .expense {
+  color: #dc2626;
+}
+
+/* EMPTY STATE & LOADING */
+.empty-state {
+  text-align: center;
+  padding: 30px 15px;
+  color: #6b7280;
+}
+
+.empty-state p {
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.add-first-btn {
+  padding: 8px 18px;
+  background: #3b82f6;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 13px;
+  transition: opacity 0.2s;
+}
+
+.add-first-btn:hover {
+  opacity: 0.9;
+}
+
+.loading-state {
+  text-align: center;
+  padding: 25px 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* DASHBOARD CARD STYLES */
+.dashboard-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* MODAL STYLES */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #1f2937;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.modal-content form {
+  padding: 20px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  background: white;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.btn-cancel,
+.btn-save {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-cancel {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.btn-save {
+  background: #3b82f6;
+  color: white;
+}
+
+.btn-save.income-btn {
+  background: #059669;
+}
+
+.btn-save.expense-btn {
+  background: #dc2626;
+}
+
+/* Mobile responsiveness for business banner */
+@media (max-width: 768px) {
+  .business-name-banner {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+  
+  .business-name-banner .edit-business-btn {
+    align-self: flex-end;
+  }
+  
+  .business-name-text h3 {
+    font-size: 20px;
+  }
+  
+  /* Extra padding on mobile if needed */
+  .dashboard-main-content {
+    padding-top: 140px; /* Slightly more on mobile if header is taller */
+  }
+}
+
+/* EMERGENCY OVERRIDE - Force all period selection text to be dark */
+.dashboard-main-content .period-selection-card * {
+  color: #1f2937 !important;
+}
+
+.dashboard-main-content .period-selection-card h3.period-title {
+  color: #1f2937 !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+}/* 🔴 HARD FIX: push content below BOTH fixed headers */
+.dashboard-main-content {
+  margin-top: 100px !important;
+}
+.business-dashboard-header {
+  background: linear-gradient(135deg, #7c3aed, #6d28d9);
+  color: #fff;
+  padding: 1.4rem 1.2rem;
+  margin-bottom: 1.2rem;
+  border-radius: 0;
+}
+
+.business-header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.business-welcome h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.business-welcome p {
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+.business-name {
+  font-weight: 500;
+}

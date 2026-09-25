@@ -1,0 +1,68 @@
+@import "./components/theme.css";
+
+
+/* GLOBAL RESET */
+body {
+  margin: 0;
+  padding: 0;
+  background: #f7f7f7;
+  font-family: "Roboto", sans-serif;
+  color: #1f2937;
+}
+
+/* Make whole app full width */
+#root {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* Remove unwanted Vite demo styles */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+h1, h2, h3 {
+  font-weight: 700;
+  font-family: "Roboto", sans-serif;
+}/* LIGHT MODE */
+:root {
+  --bg: #f8fafc;
+  --card-bg: #ffffff;
+  --text: #1e293b;
+  --text-light: #64748b;
+  --border: #e2e8f0;
+  --btn: #2563eb;
+  --btn-text: #ffffff;
+}
+/* DARK MODE */
+[data-theme="dark"] {
+  --bg: #0f172a;
+  --card-bg: #1e293b;
+  --text: #e2e8f0;
+  --text-light: #94a3b8;
+  --border: #334155;
+  --btn: #3b82f6;
+  --btn-text: #ffffff;
+}
+
+/* Smooth transitions */
+* {
+  transition: background 0.25s ease, color 0.25s ease, border 0.25s ease;
+}
+
+/* FIX DARK THEME - FORCE LIGHT */
+html, body, .business-page {
+  background: white !important;
+  color: #333 !important;
+}
+
+[data-theme="dark"] {
+  background: white !important;
+  color: #333 !important;
+}

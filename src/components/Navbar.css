@@ -1,0 +1,889 @@
+/* ================================
+   NAVBAR MAIN
+================================ */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* ================================
+   CONTAINER
+================================ */
+.nav-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  height: 100%;
+}
+
+/* ================================
+   LOGO - FIXED
+================================ */
+.nav-logo {
+  flex-shrink: 0;
+  margin-right: 30px;
+}
+
+.logo-link {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-image {
+  height: 25px;
+  max-height: 25px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.logo-tagline {
+  font-size: 11px;
+  font-weight: 500;
+  color: #56565a;
+  text-align: center;
+  margin-top: 4px;
+  letter-spacing: 0.3px;
+}
+
+/* ================================
+   TABS
+================================ */
+.nav-tabs-container {
+  flex: 1;
+}
+
+.nav-tabs {
+  display: flex;
+  gap: 8px;
+}
+
+.nav-tab {
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  background: transparent;
+}
+
+.nav-tab:hover {
+  background: #f3f4f6;
+}
+
+.nav-tab.active {
+  background: #2563eb !important;
+  color: white !important;
+}
+
+.nav-tab.active:hover {
+  background: #1d4ed8 !important;
+  color: white !important;
+}
+
+/* Hide icons on medium screens */
+@media (max-width: 1279px) {
+  .nav-icon {
+    display: none;
+  }
+
+  .nav-tab {
+    gap: 0;
+  }
+}
+
+/* ================================
+   RIGHT SIDE
+================================ */
+.nav-right {
+  display: flex !important;
+  align-items: center !important;
+  margin-left: auto !important;
+  min-width: 0 !important;
+}
+
+/* ================================
+   DESKTOP RIGHT CONTAINER
+================================ */
+.desktop-right {
+  display: flex !important;
+  align-items: center !important;
+  position: relative;
+  padding-left: 0 !important;
+}
+
+/* ================================
+   DESKTOP PLAN BADGE
+================================ */
+.plan-badge {
+  position: absolute !important;
+  left: 0 !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  padding: 6px 14px !important;
+  border-radius: 20px !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.5px !important;
+  white-space: nowrap !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+  z-index: 1 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 60px !important;
+  text-align: center !important;
+  border: 2px solid white !important;
+}
+
+/* ================================
+   ICON CONTAINER
+================================ */
+.icon-container {
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+  margin-left: 80px !important;
+}
+
+.icon-btn {
+  background: transparent !important;
+  border: 1.5px solid rgba(0, 0, 0, 0.25) !important;
+  width: 44px !important;
+  height: 44px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 50% !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  padding: 0 !important;
+  color: #111111 !important;
+  position: relative;
+  font-size: 24px !important;
+}
+
+.icon-btn:hover {
+  background-color: rgba(37, 99, 235, 0.06) !important;
+  border-color: #2563eb !important;
+}
+
+/* Profile icon styling - Enlarged */
+.profile-icon {
+  color: #374151;
+  transition: color 0.2s ease;
+  width: 24px;
+  height: 24px;
+}
+
+.icon-btn:hover .profile-icon {
+  color: #2563eb;
+}
+
+/* ================================
+   NOTIFICATION DROPDOWN (DESKTOP)
+================================ */
+.notification-container {
+  position: relative;
+}
+
+.notification-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  min-width: 280px;
+  z-index: 1002;
+  margin-top: 8px;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+}
+
+.notification-empty {
+  padding: 24px 20px;
+  text-align: center;
+  color: #6b7280;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* ================================
+   USER DROPDOWN (DESKTOP)
+================================ */
+.user-dropdown-container {
+  position: relative !important;
+}
+
+.user-dropdown {
+  position: absolute !important;
+  top: 100% !important;
+  right: 0 !important;
+  background: white !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12) !important;
+  padding: 0 !important;
+  min-width: 260px !important;
+  z-index: 1001 !important;
+  display: block !important;
+  margin-top: 8px !important;
+  border: 1px solid #e5e7eb;
+}
+
+.dropdown-email {
+  padding: 16px !important;
+  font-size: 14px !important;
+  color: #6b7280 !important;
+  font-weight: 500 !important;
+  border-bottom: 1px solid #e5e7eb !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  background: #ffffff;
+}
+
+.dropdown-divider {
+  height: 1px;
+  background: #e5e7eb;
+  margin: 0;
+}
+
+.dropdown-item {
+  width: 100% !important;
+  text-align: left !important;
+  padding: 10px 16px !important;
+  border: none !important;
+  background: transparent !important;
+  font-size: 13px !important;
+  color: #374151 !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s ease !important;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dropdown-item:hover {
+  background-color: #f8fafc !important;
+}
+
+.dropdown-item-icon {
+  font-size: 15px;
+  opacity: 0.8;
+}
+
+/* Support and Feedback links - Blue color */
+.support-link,
+.feedback-link {
+  color: #2563eb !important;
+  font-weight: 500 !important;
+}
+
+.support-link:hover,
+.feedback-link:hover {
+  background-color: #eff6ff !important;
+}
+
+.logout-dropdown {
+  color: #dc2626 !important;
+  font-weight: 600 !important;
+}
+
+/* ================================
+   ACCOUNT SWITCHER STYLES (DESKTOP)
+================================ */
+.dropdown-switcher-container {
+  padding: 12px 10px !important;
+  margin: 0 !important;
+  background: #206ed3 !important;
+  border-radius: 0 !important;
+  border-left: 3px solid #3b82f6 !important;
+}
+
+.dropdown-switcher-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #ffffff !important;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  display: block;
+  
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.user-dropdown .account-switcher-simple {
+  display: flex;
+  gap: 8px;
+  background: #ffffff;
+  padding: 6px;
+  border-radius: 8px;
+  width: 100%;
+  border: 1px solid #bfdbfe;
+}
+
+.user-dropdown .switcher-option {
+  flex: 1;
+  padding: 6px 8px !important;
+  border-radius: 6px;
+  border: 1px solid transparent !important;
+  background: #ffffff;
+  color: #4b5563;
+  font-size: 12px !important;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 32px !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.user-dropdown .switcher-option.active {
+  background: #2563eb !important;
+  color: white !important;
+  border-color: #2563eb !important;
+  box-shadow: 0 1px 3px rgba(37, 99, 235, 0.3);
+}
+
+.user-dropdown .switcher-option:not(.active):hover {
+  background: #3b82f6 !important;
+  color: white !important;
+  border-color: #3b82f6 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+}
+
+/* ================================
+   MOBILE PLAN BADGE - CENTERED
+================================ */
+.plan-badge-mobile {
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  padding: 8px 18px !important;
+  border-radius: 20px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.5px !important;
+  white-space: nowrap !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+  z-index: 1 !important;
+}
+
+/* ================================
+   MOBILE MENU BUTTON - FAR RIGHT (MORE SPACING)
+================================ */
+.mobile-menu-btn {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 2 !important;
+  position: absolute !important;
+  padding: 8px;
+  right: 10px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+}
+
+.mobile-menu-btn .bar {
+  width: 26px;
+  height: 3px;
+  background: #374151;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* ================================
+   MOBILE MENU STYLES
+================================ */
+@media (max-width: 767px) {
+  .nav-tabs,
+  .desktop-right,
+  .plan-badge,
+  .user-email,
+  .logout-btn,
+  .icon-container {
+    display: none !important;
+  }
+
+  /* Mobile right section */
+  .nav-right {
+    position: relative !important;
+    width: 100% !important;
+    justify-content: flex-end !important;
+    height: 70px !important;
+  }
+
+  /* Centered plan badge on mobile */
+  .plan-badge-mobile {
+    display: block !important;
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    margin: 0 !important;
+  }
+
+  /* Hamburger menu at far right */
+  .mobile-menu-btn {
+    display: flex !important;
+    position: absolute !important;
+    right: 10px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+  }
+
+  .mobile-menu-overlay {
+    display: block;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+
+  .mobile-menu {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    max-width: 320px;
+    height: 100%;
+    background: white;
+    padding: 0;
+    box-shadow: -2px 0 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Remove the separate mobile-header */
+  .mobile-header {
+    display: none !important;
+  }
+
+  .mobile-top-section {
+    padding: 20px 20px 16px 20px;
+    border-bottom: 1px solid #e5e7eb;
+    position: relative;
+  }
+
+  .mobile-email-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+  }
+
+  /* Close button positioned inline with email on far right */
+  .mobile-close-btn {
+    position: absolute !important;
+    right: 0 !important;
+    top: 0 !important;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    color: #374151;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+    z-index: 1;
+  }
+
+  .mobile-close-btn:hover {
+    background-color: #f3f4f6;
+  }
+
+  /* Make close button SVG visible */
+  .mobile-close-btn svg {
+    display: block !important;
+    width: 20px;
+    height: 20px;
+  }
+
+  .mobile-notification-icon-btn {
+    background: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  .mobile-notification-icon-btn:hover {
+    background-color: #e5e7eb;
+    border-color: #d1d5db;
+  }
+
+  .mobile-email {
+    font-size: 14px;
+    color: #6b7280;
+    font-weight: 500;
+    line-height: 1.4;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 40px;
+    min-height: 32px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Primary Navigation */
+  .mobile-nav-primary {
+    padding: 16px 0;
+    flex: 1;
+    overflow-y: auto;
+  }
+
+  .mobile-nav-item {
+    display: block;
+    padding: 14px 20px;
+    color: #374151;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    width: 100%;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    text-align: left;
+    border-left: 3px solid transparent;
+  }
+
+  .mobile-nav-item:hover {
+    background-color: #f9fafb;
+  }
+
+  .mobile-nav-item.active {
+    background-color: #f0f7ff;
+    color: #2563eb;
+    border-left: 3px solid #2563eb;
+  }
+
+  /* Secondary Actions - Smaller size */
+  .mobile-secondary-actions {
+    padding: 8px 20px;
+    border-top: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .mobile-link-btn {
+    background: none;
+    border: none;
+    color: #2563eb;
+    font-size: 13px !important;
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+    padding: 6px 0;
+    transition: color 0.2s ease;
+  }
+
+  .mobile-link-btn:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+  }
+
+  /* Bottom Section */
+  .mobile-bottom-section {
+    padding: 16px 20px;
+    border-top: 1px solid #e5e7eb;
+    background: #f9fafb;
+  }
+
+  /* Mobile Switcher - Centered label */
+  .mobile-switcher-container {
+    background: #0c72f8;
+    padding: 5px 5px !important;
+    border-radius: 8px;
+    border: 1px solid #bfdbfe;
+    margin-bottom: 16px;
+    border-left: 3px solid #3b82f6 !important;
+  }
+
+  /* Center the switch label */
+  .mobile-switcher-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #ffffff !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+    display: block;
+    text-align: center !important;
+    padding: 3px 6px;
+    border-radius: 3px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: fit-content !important;
+  }
+
+  .mobile-menu .account-switcher-simple {
+    display: flex;
+    gap: 4px !important;
+    background: #ffffff;
+    padding: 4px !important;
+    border-radius: 6px;
+    width: 100%;
+    border: 1px solid #bfdbfe;
+  }
+
+  .mobile-menu .switcher-option {
+    flex: 1;
+    padding: 5px 4px !important;
+    border-radius: 4px;
+    border: 1px solid transparent !important;
+    background: #ffffff;
+    color: #4b5563;
+    font-size: 11px !important;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    min-height: 28px !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+
+  .mobile-menu .switcher-option.active {
+    background: #2563eb !important;
+    color: white !important;
+    border-color: #2563eb !important;
+    box-shadow: 0 1px 3px rgba(37, 99, 235, 0.3);
+  }
+
+  .mobile-menu .switcher-option:not(.active):hover {
+    background: #3b82f6 !important;
+    color: white !important;
+    border-color: #3b82f6 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+  }
+
+  /* Mobile Logout Button */
+  .mobile-logout-btn {
+    width: 100%;
+    padding: 10px;
+    background: #fee2e2;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    color: #dc2626;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+  }
+
+  .mobile-logout-btn:hover {
+    background: #fecaca;
+  }
+
+  .mobile-logout-icon {
+    font-size: 16px;
+  }
+
+  /* Mobile Notification Dropdown */
+  .mobile-notification-dropdown {
+    position: absolute;
+    top: 100px;
+    right: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    min-width: 240px;
+    z-index: 1002;
+    border: 1px solid #e5e7eb;
+    overflow: hidden;
+  }
+
+  /* Mobile logo adjustments */
+  .logo-image {
+    height: 45px;
+  }
+  
+  .nav-logo {
+    margin-right: 20px;
+  }
+  
+  .logo-tagline {
+    font-size: 10px;
+    margin-top: -2px;
+  }
+}
+
+/* ================================
+   DESKTOP STYLES
+================================ */
+@media (min-width: 768px) {
+  /* Hide mobile elements on desktop */
+  .plan-badge-mobile,
+  .mobile-menu-btn {
+    display: none !important;
+  }
+  
+  /* Show desktop elements */
+  .desktop-right {
+    display: flex !important;
+    align-items: center !important;
+  }
+  
+  .plan-badge {
+    display: inline-flex !important;
+  }
+  
+  .icon-container {
+    display: flex !important;
+  }
+}
+
+/* ================================
+   ACCESSIBILITY
+================================ */
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* ================================
+   EXTRA AGGRESSIVE OVERRIDES FOR DESKTOP
+================================ */
+@media (min-width: 768px) {
+  .desktop-right {
+    display: flex !important;
+    align-items: center !important;
+    position: relative !important;
+    padding-left: 0 !important;
+    gap: 12px !important;
+  }
+  
+  .plan-badge {
+    position: absolute !important;
+    left: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    margin: 0 !important;
+    z-index: 1 !important;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2) !important;
+    border: 2px solid white !important;
+  }
+  
+  .icon-container {
+    margin-left: 80px !important;
+  }
+}
+
+/* ================================
+   NUCLEAR OPTION: Remove email background completely
+================================ */
+.nav-right .desktop-right .user-email {
+  background: none !important;
+  box-shadow: none !important;
+  padding-left: 80px !important;
+}
+
+.nav-right .desktop-right .plan-badge {
+  border: 3px solid white !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+  padding: 7px 16px !important;
+  font-size: 12px !important;
+  min-width: 70px !important;
+}
+
+/* Hide mobile switcher on desktop */
+@media (min-width: 768px) {
+  .mobile-switcher-container {
+    display: none !important;
+  }
+}
+
+/* Hide desktop switcher on mobile */
+@media (max-width: 767px) {
+  .dropdown-switcher-container {
+    display: none !important;
+  }
+}
+
+/* ================================
+   ADDITIONAL LOGO FIXES
+================================ */
+/* Ensure logo container doesn't collapse */
+.nav-logo {
+  min-width: 120px; /* Ensure minimum width for logo */
+}
+
+/* Make sure logo image loads properly */
+.logo-image {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Fallback for broken images */
+.logo-image:before {
+  content: "BudgetPro";
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  color: #2563eb;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Debug border - remove in production */
+/* .nav-logo { border: 1px solid red; } */
+/* .logo-link { border: 1px solid blue; } */
+/* .logo-image { border: 1px solid green; } */

@@ -1,0 +1,429 @@
+/* BusinessExpenses.css - FIXED HEADER VERSION WITH UNIQUE CLASSES */
+.business-expenses-page {
+  min-height: 100vh;
+  background: #f8fafc;
+  padding-top: 140px; /* Add padding to prevent content from hiding under fixed header */
+}
+
+/* HEADER - FIXED AT THE TOP (DOES NOT SCROLL) */
+.business-header-section {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: white;
+  padding: 20px 16px;
+  position: fixed !important; /* Changed to FIXED */
+  top: 60px; /* Below main navbar */
+  left: 0;
+  right: 0;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  width: 100%;
+  margin: 0;
+}
+
+.business-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.business-welcome-message {
+  flex: 1;
+  text-align: center;
+  min-width: 200px;
+}
+
+.business-welcome-message h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 4px 0;
+  color: white;
+}
+
+.business-welcome-message p {
+  font-size: 13px;
+  opacity: 0.9;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* ACCOUNT SWITCHER */
+.business-account-switcher-section {
+  position: relative;
+  z-index: 100;
+  width: 100%;
+  max-width: 160px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.business-switch-account-title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  width: 100%;
+  line-height: 1;
+}
+
+/* CONTENT - STARTS BELOW FIXED HEADER */
+.business-content {
+  padding: 30px 16px 40px;
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+/* FORM CONTAINER */
+.business-form-container {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+}
+
+.business-tips-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+  margin-top: 20px;
+}
+
+/* FORM GROUPS */
+.business-form-group {
+  margin-bottom: 20px;
+}
+
+.business-form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+.business-form-group input,
+.business-form-group select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 15px;
+  background: white;
+  color: #1f2937;
+  transition: all 0.2s ease;
+}
+
+.business-form-group input:focus,
+.business-form-group select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* AMOUNT INPUT */
+.business-amount-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.business-currency-label {
+  font-size: 15px;
+  font-weight: 500;
+  color: #374151;
+  min-width: 20px;
+}
+
+/* SUCCESS MESSAGE */
+.business-success-message {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  padding: 12px 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  animation: businessSlideIn 0.3s ease;
+}
+
+@keyframes businessSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.business-success-icon {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.business-success-text {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* FORM ACTIONS */
+.business-form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #e5e7eb;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* BUSINESS-SPECIFIC BUTTONS - WON'T LEAK TO DASHBOARD */
+.business-cancel-btn,
+.business-submit-btn {
+  flex: 1;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  min-width: 120px;
+  max-width: 160px;
+}
+
+.business-cancel-btn {
+  background: #ef4444;
+  color: white;
+  border: 1px solid #dc2626;
+}
+
+.business-cancel-btn:hover:not(:disabled) {
+  background: #dc2626;
+}
+
+.business-submit-btn {
+  background: #10b981;
+  color: white;
+  border: 1px solid #059669;
+}
+
+.business-submit-btn:hover:not(:disabled) {
+  background: #059669;
+}
+
+.business-cancel-btn:disabled,
+.business-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* SPINNER */
+.business-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: businessSpin 1s ease-in-out infinite;
+}
+
+@keyframes businessSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* TIPS CARD */
+.business-tips-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.business-tips-icon {
+  font-size: 20px;
+}
+
+.business-tips-header h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+}
+
+.business-tips-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.business-tips-list li {
+  font-size: 14px;
+  color: #4b5563;
+  padding: 8px 0;
+  padding-left: 24px;
+  position: relative;
+  line-height: 1.4;
+}
+
+.business-tips-list li:before {
+  content: "•";
+  color: #3b82f6;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 639px) {
+  .business-expenses-page {
+    padding-top: 130px; /* Adjusted for mobile */
+  }
+  
+  .business-header-section {
+    padding: 15px 12px;
+    top: 50px; /* Adjusted for mobile navbar */
+  }
+  
+  .business-content {
+    padding: 25px 12px 30px;
+  }
+  
+  .business-header-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .business-account-switcher-section {
+    align-self: center;
+    max-width: 100%;
+    margin-top: 8px;
+  }
+  
+  .business-form-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .business-cancel-btn,
+  .business-submit-btn {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+/* TABLET / DESKTOP */
+@media (min-width: 640px) {
+  .business-expenses-page {
+    padding-top: 140px;
+  }
+  
+  .business-header-section {
+    padding: 20px 24px;
+    top: 60px;
+  }
+  
+  .business-content {
+    padding: 30px 24px 40px;
+  }
+  
+  .business-welcome-message h2 {
+    font-size: 22px;
+  }
+  
+  .business-welcome-message p {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 768px) {
+  .business-header-section {
+    padding: 20px 40px;
+  }
+  
+  .business-content {
+    padding: 30px 40px 40px;
+  }
+  
+  .business-welcome-message h2 {
+    font-size: 24px;
+  }
+}
+
+/* Ensure content doesn't hide under fixed header */
+.business-expenses-page {
+  padding-top: 150px !important; /* Adjust this value based on your header heights */
+}
+
+@media (max-width: 639px) {
+  .business-expenses-page {
+    padding-top: 140px !important; /* Slightly less for mobile */
+  }
+}
+
+/* BUSINESS EXPENSE SPECIFIC STYLES THAT WON'T LEAK */
+.business-expense-date-input,
+.business-expense-description-input,
+.business-expense-amount-input,
+.business-expense-category-select,
+.business-expense-type-select {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 10px 12px !important;
+  border: 1px solid #d1d5db !important;
+  border-radius: 8px !important;
+  font-size: 15px !important;
+  background: white !important;
+  color: #1f2937 !important;
+}
+
+/* PREVENT DASHBOARD STYLES FROM AFFECTING BUSINESS */
+.business-page * {
+  /* Reset any dashboard-specific styles */
+  box-sizing: border-box;
+}
+
+.business-page .submit-btn,
+.business-page .cancel-btn {
+  /* Force business styles */
+  background: none !important;
+  border: none !important;
+  color: inherit !important;
+  padding: 12px 24px !important;
+  margin: 0 !important;
+}
+
+/* Make sure business components are isolated */
+.business-expenses-form,
+.business-income-form,
+.business-invoice-form,
+.business-quotation-form {
+  isolation: isolate;
+}
